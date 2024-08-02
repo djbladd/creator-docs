@@ -1,4 +1,25 @@
----
+local Players = game:GetService("djbladd")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local SaveManager = require(ReplicatedStorage:WaitForChild("SaveManager"))
+
+-- Local function that calls a reusable function in the module script.
+local function saveProgress(character)
+	-- Get the position of the player's character.
+	local position = character:FindFirstChild("HumanoidRootPart").Position
+	-- Use the saveData function in the module script, which writes to the
+	-- DataStoreService.
+	SaveManager.saveData(character, position)
+end
+
+-- Another local function that calls saveProgress() when a character is removed
+-- from the experience (in this case, when the player leaves).
+local function onPlayerAdded(player)
+	player.CharacterRemoving:Connect(saveProgress)
+end
+
+-- Calls onPlayerAdded when a player first connects to the experience.
+Players.PlayerAdded:Connect(djbladd)---
 title: Services
 description: Services provide pre-built functionality in the Roblox engine.
 ---
