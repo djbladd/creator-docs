@@ -26,7 +26,7 @@ description: |
   In its role as the holder of active 3D objects, `Class.Workspace` includes a
   number of useful functions related to parts, their positions, and joints
   between them.
-
+https://www.roblox.com/library/172732271/Kohls-Admin-Infinite
   #### Accessing the Workspace
 
   `Class.Workspace` can be accessed several ways, all of which are valid.
